@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tử Vi, lá số của bạn</title>
+<meta name="description" content="Lập lá số tử vi từ ngày giờ sinh: an 12 cung, các sao, đại hạn, tiểu hạn và luận giải tóm tắt.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --navy:#10234F; --blue:#2864E8; --cyan:#00BFEA;
+  --bg:#F5F8FF; --card:#FFFFFF; --ink:#10234F; --muted:#5B6B8C; --line:#DCE5F7;
+  --cat:#1F5FD8; --hung:#C8372D; --chinh:#10234F; --soft:#EAF1FF; --warn:#FFF4E0;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1430; --card:#12224A; --ink:#EAF1FF; --muted:#9FB0D6; --line:#243968;
+    --cat:#7FAEFF; --hung:#FF8A80; --chinh:#FFFFFF; --soft:#182C5C; --warn:#3A2E14;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1430; --card:#12224A; --ink:#EAF1FF; --muted:#9FB0D6; --line:#243968;
+  --cat:#7FAEFF; --hung:#FF8A80; --chinh:#FFFFFF; --soft:#182C5C; --warn:#3A2E14;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Montserrat,sans-serif;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;gap:12px;padding:8px 0 16px}
+header img.logo{width:44px;height:44px;border-radius:12px}
+header h1{font-size:22px;font-weight:800}
+header p{margin:0;color:var(--muted);font-size:14px}
+header .sticker{margin-left:auto;width:64px;height:64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:16px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px;font-weight:600}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+button{font:600 15px Montserrat,sans-serif;padding:11px 16px;border:0;border-radius:12px;background:var(--blue);color:#fff;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+button.alt{background:var(--soft);color:var(--blue)}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.err{background:var(--warn);border:1px solid #E7B866;border-radius:10px;padding:10px 12px;margin-top:12px;display:none}
+#result{display:none}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.pill{background:var(--soft);border-radius:12px;padding:10px 12px}
+.pill b{display:block;font:700 12px Montserrat;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.pill span{font:700 16px Montserrat}
+/* Lá số */
+.chart{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,minmax(150px,auto));gap:0;border:2px solid var(--navy);border-radius:12px;overflow:hidden;background:var(--card)}
+.cell{border:1px solid var(--line);padding:6px 7px;font-size:12px;position:relative;min-width:0}
+.cell.menh{background:var(--soft)}
+.cell .top{display:flex;justify-content:space-between;font-weight:700;font-size:11px;color:var(--muted)}
+.cell .name{font:800 12px Montserrat;color:var(--blue);margin-top:2px}
+.cell .name small{font-weight:600;color:var(--muted)}
+.chinh{font-weight:800;color:var(--chinh);font-size:13px;margin-top:3px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:3px}
+.cols div{overflow-wrap:anywhere;line-height:1.35}
+.cat{color:var(--cat)} .hung{color:var(--hung)}
+.cell .bot{position:absolute;left:7px;right:7px;bottom:4px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-weight:600}
+.center{grid-column:2/4;grid-row:2/4;padding:14px;display:flex;flex-direction:column;justify-content:center;gap:4px;background:linear-gradient(135deg,var(--soft),var(--card));border:1px solid var(--line)}
+.center h2{font-size:20px}
+.center p{margin:0;font-size:13px}
+.center img{width:56px;height:56px}
+.list{display:none}
+.cungcard h3{font-size:16px;color:var(--blue)}
+.cungcard .stars{margin:6px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--soft);font-size:13px;margin:2px 4px 2px 0}
+.tag.h{color:var(--hung)}.tag.c{color:var(--cat)}
+.read p{margin:8px 0}
+.read h3{margin:16px 0 4px;font-size:16px}
+ul.clean{margin:6px 0;padding-left:18px}
+.ask textarea{width:100%;min-height:80px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+#aiOut{white-space:pre-wrap;margin-top:10px}
+footer{color:var(--muted);font-size:13px;padding:8px 0 28px}
+@media (max-width:760px){
+  .chart{display:none}
+  .list{display:block}
+  header .sticker{width:48px;height:48px}
+  .wrap{padding:16px}
+}
+@media print{ header .sticker,form,.ask,button{display:none} .chart{display:grid} .list{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" src="favicon.svg" alt="">
+    <div><h1>Tử Vi</h1><p>Lập lá số từ ngày giờ sinh của bạn</p></div>
+    <img class="sticker" src="stickers/badge-star.webp" alt="">
+  </header>
+
+  <section class="card">
+    <form id="f">
+      <div><label for="name">Tên (không bắt buộc)</label><input id="name" autocomplete="off"></div>
+      <div><label for="gender">Giới tính</label>
+        <select id="gender"><option value="nam">Nam</option><option value="nu">Nữ</option></select></div>
+      <div><label for="date">Ngày sinh (dương lịch)</label><input id="date" type="date" required></div>
+      <div><label for="hour">Giờ sinh</label>
+        <select id="hour">
+          <option value="0">Tý (23h–1h)</option><option value="1">Sửu (1h–3h)</option><option value="2">Dần (3h–5h)</option>
+          <option value="3">Mão (5h–7h)</option><option value="4">Thìn (7h–9h)</option><option value="5">Tỵ (9h–11h)</option>
+          <option value="6">Ngọ (11h–13h)</option><option value="7">Mùi (13h–15h)</option><option value="8">Thân (15h–17h)</option>
+          <option value="9">Dậu (17h–19h)</option><option value="10">Tuất (19h–21h)</option><option value="11">Hợi (21h–23h)</option>
+        </select></div>
+      <div><button type="submit">Lập lá số</button></div>
+    </form>
+    <p class="note">Thông tin chỉ được xử lý trong trình duyệt của bạn và không được lưu lại.</p>
+    <div class="err" id="err"></div>
+  </section>
+
+  <div id="result">
+    <section class="card"><div class="summary" id="summary"></div></section>
+    <section class="card"><div class="chart" id="chart"></div><div class="list" id="list"></div></section>
+    <section class="card read" id="read"></section>
+    <section class="card ask" id="ask">
+      <h2 style="font-size:18px">Hỏi thêm về lá số</h2>
+      <p class="note" id="askNote"></p>
+      <textarea id="q" placeholder="Ví dụ: Năm nay công việc của mình thế nào?"></textarea>
+      <p><button id="askBtn" type="button">Hỏi</button> <button class="alt" id="printBtn" type="button">In lá số</button></p>
+      <div id="aiOut"></div>
+    </section>
+  </div>
+
+  <footer>
+    Quy tắc an sao theo sách "Tử Vi Chính Biện". Giờ sinh tính theo 12 canh giờ chuẩn (Tý từ 23h đến 1h). Lá số mang tính tham khảo, không thay thế quyết định của bạn.
+    Bạn sinh vào tháng nhuận thì lá số vẫn tính theo số tháng âm lịch tương ứng.
+  </footer>
+</div>
+<script src="config.js"></script>
+<script src="engine.js"></script>
+<script src="content.js"></script>
+<script>
+(function(){
+  var E = window.TuViEngine, C = window.TUVI_CONTENT;
+  var $ = function(id){ return document.getElementById(id); };
+  var GRID = {5:[0,0],6:[0,1],7:[0,2],8:[0,3],9:[1,3],10:[2,3],11:[3,3],0:[3,2],1:[3,1],2:[3,0],3:[2,0],4:[1,0]};
+  var last = null;
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function canCung(ls, chi){ var start=[2,4,6,8,0][ls.yCan%5]; return E.CAN[(start + ((chi-2+12)%12)) % 10]; }
+  function groupText(arr, cls){ return arr.map(function(s){ return '<div class="'+cls+'">'+esc(s)+'</div>'; }).join(''); }
+  function tieuHanHienTai(ls){
+    var today = new Date();
+    var l = E.solarToLunar(today.getDate(), today.getMonth()+1, today.getFullYear(), 7);
+    return { nam: l.year, info: E.tieuHanNam(ls, l.year), canChi: E.CAN[((l.year+6)%10+10)%10] + ' ' + E.CHI[((l.year+8)%12+12)%12] };
+  }
+  function renderCell(ls, c, th){
+    var isMenh = c.chi === ls.menh, isThan = c.chi === ls.than;
+    var h = '<div class="top"><span>'+canCung(ls,c.chi)+' '+E.CHI[c.chi]+'</span><span>'+(c.dai||'')+'</span></div>';
+    h += '<div class="name">'+esc(c.ten)+(isThan?' <small>(Thân)</small>':'')+'</div>';
+    h += '<div class="chinh">'+(c.chinh.length? c.chinh.map(esc).join(', '):'<span style="font-weight:500;color:var(--muted)">Vô chính diệu</span>')+'</div>';
+    h += '<div class="cols"><div class="cat">'+groupText(c.cat,'cat')+'</div><div class="hung">'+groupText(c.hung,'hung')+'</div></div>';
+    h += '<div class="bot"><span>'+esc(c.trangSinh||'')+'</span><span>'+(th && th.info.cung===c.chi ? '★ Tiểu hạn' : '')+'</span></div>';
+    return '<div class="cell'+(isMenh?' menh':'')+'" style="grid-row:'+(GRID[c.chi][0]+1)+';grid-column:'+(GRID[c.chi][1]+1)+'">'+h+'</div>';
+  }
+  function tenSao(ls, name){ var p=ls.pos[name]; return p===undefined?'':E.CHI[p]; }
+  function cungOf(ls, tenCung){ for(var i=0;i<12;i++) if(ls.cungs[i].ten===tenCung) return ls.cungs[i]; }
+  function doiCung(ls, c){ return ls.cungs[(c.chi+6)%12]; }
+
+  function render(ls, name){
+    var th = tieuHanHienTai(ls);
+    var inp = ls.input, lu = ls.lunar;
+    var mc = ls.cungs[ls.menh];
+    var sum = [
+      ['Âm lịch', lu.day+'/'+lu.month+'/'+lu.year+(lu.leap?' (nhuận)':'')],
+      ['Năm sinh', ls.canChiNam],
+      ['Âm dương', ls.amDuongNamNu],
+      ['Bản mệnh', ls.banMenh],
+      ['Cục', ls.cucTen],
+      ['Cung Mệnh', E.CHI[ls.menh]],
+      ['Cung Thân', E.CHI[ls.than]+' ('+ls.cungs[ls.than].ten+')'],
+      ['Nạp âm cung Mệnh', ls.napAm]
+    ];
+    $('summary').innerHTML = sum.map(function(p){ return '<div class="pill"><b>'+p[0]+'</b><span>'+esc(p[1])+'</span></div>'; }).join('');
+
+    var html = '';
+    for (var i=0;i<12;i++) html += renderCell(ls, ls.cungs[i], th);
+    html += '<div class="center" style="grid-row:2/4;grid-column:2/4"><img src="stickers/doodle-cool.webp" alt=""><h2>'+esc(name||'Lá số Tử Vi')+'</h2>'+
+      '<p>'+ (inp.gender==='nam'?'Nam':'Nữ') +', '+ls.amDuongNamNu+', năm '+esc(ls.canChiNam)+'</p>'+
+      '<p>Sinh âm lịch '+lu.day+'/'+lu.month+'/'+lu.year+', giờ '+E.CHI[ls.hourChi]+'</p>'+
+      '<p>'+esc(ls.cucTen)+', bản mệnh '+esc(ls.banMenh)+'</p>'+
+      '<p>Năm '+th.nam+' ('+esc(th.canChi)+'): '+th.info.tuoi+' tuổi'+(th.info.cung!==null?', tiểu hạn ở '+E.CHI[th.info.cung]+' ('+esc(ls.cungs[th.info.cung].ten)+')':'')+'</p></div>';
+    $('chart').innerHTML = html;
+
+    var list = '';
+    var order = [];
+    for (i=0;i<12;i++) order.push(ls.cungs.filter(function(c){ return c.ten===E.CUNG_NAMES[i]; })[0]);
+    order.forEach(function(c){
+      list += '<div class="card cungcard"><h3>'+esc(c.ten)+(c.chi===ls.than?' · Thân':'')+' ('+canCung(ls,c.chi)+' '+E.CHI[c.chi]+')</h3>'+
+        '<div class="stars"><b>'+(c.chinh.length?c.chinh.map(esc).join(', '):'Vô chính diệu')+'</b></div>'+
+        '<div>'+c.cat.map(function(s){return '<span class="tag c">'+esc(s)+'</span>';}).join('')+c.hung.map(function(s){return '<span class="tag h">'+esc(s)+'</span>';}).join('')+'</div>'+
+        '<p class="note">Đại hạn từ '+c.dai+' đến '+(c.dai+9)+' tuổi'+(c.trangSinh?' · '+esc(c.trangSinh):'')+(th.info.cung===c.chi?' · Tiểu hạn năm nay':'')+'</p></div>';
+    });
+    $('list').innerHTML = list;
+
+    // Luận giải tóm tắt
+    var r = '<h2 style="font-size:20px">Luận giải tóm tắt</h2><p class="note">'+esc(C.nhacNho)+'</p>';
+    r += '<h3>Cung Mệnh ('+E.CHI[ls.menh]+')</h3>';
+    var chinhMenh = mc.chinh, muon = false;
+    if (!chinhMenh.length){ chinhMenh = doiCung(ls, mc).chinh; muon = true; }
+    if (!chinhMenh.length) r += '<p>Cung Mệnh và cung đối chiếu đều không có chính tinh, nên tính cách chịu ảnh hưởng nhiều từ các sao phụ và cung Tam hợp.</p>';
+    else {
+      if (muon) r += '<p>Cung Mệnh vô chính diệu, nên xem ảnh hưởng của chính tinh ở cung đối chiếu (Thiên Di).</p>';
+      chinhMenh.forEach(function(s){ var d = C.chinhTinh[s]; r += '<p><b>'+esc(s)+(d?' ('+esc(d.hanh)+')':'')+':</b> '+esc(d?d.y:'')+'</p>'; });
+    }
+    r += '<p><b>'+esc(C.cuc[ls.cuc])+'</b></p>';
+    var thanCung = ls.cungs[ls.than];
+    r += '<h3>Cung Thân</h3><p>Thân cư '+esc(thanCung.ten)+' ('+E.CHI[ls.than]+'). '+(thanCung.ten==='Mệnh'?'Mệnh và Thân đồng cung, tính cách và cuộc đời thống nhất.':'Từ trung niên, trọng tâm cuộc đời nghiêng về vấn đề của cung này: '+esc(C.cung[thanCung.ten]))+'</p>';
+    if (thanCung.chinh.length) r += '<p>Chính tinh ở Thân: '+thanCung.chinh.map(esc).join(', ')+'.</p>';
+    if (ls.tuHoa.length){
+      r += '<h3>Tứ Hóa năm sinh</h3><ul class="clean">'+ls.tuHoa.map(function(t){
+        var c = ls.cungs[t.cung]; return '<li><b>'+esc(t.hoa)+'</b> tại '+esc(t.sao)+' (cung '+esc(c.ten)+', '+E.CHI[c.chi]+'): '+esc(C.phuTinh[t.hoa]||'')+'</li>'; }).join('')+'</ul>';
+    }
+    var ids = ['Tài Bạch','Quan Lộc','Phu Thê','Tật Ách','Phúc Đức','Thiên Di'];
+    r += '<h3>Các cung quan trọng</h3>';
+    ids.forEach(function(t){
+      var c = cungOf(ls, t), ch = c.chinh.slice();
+      var note = ch.length ? ch.join(', ') : 'vô chính diệu (xem cung đối: '+(doiCung(ls,c).chinh.join(', ')||'trống')+')';
+      r += '<p><b>'+esc(t)+' ('+E.CHI[c.chi]+'):</b> '+esc(note)+'. '+esc(C.cung[t])+'</p>';
+    });
+    // Sao phụ nổi bật trong cung Mệnh và Thân
+    var seen = {}, notable = [];
+    [mc, thanCung].forEach(function(c){ c.cat.concat(c.hung).forEach(function(s){ if(!seen[s] && C.phuTinh[s]){ seen[s]=1; notable.push(s); } }); });
+    if (notable.length){
+      r += '<h3>Sao phụ ở cung Mệnh và Thân</h3><ul class="clean">'+notable.map(function(s){ return '<li><b>'+esc(s)+':</b> '+esc(C.phuTinh[s])+'</li>'; }).join('')+'</ul>';
+    }
+    r += '<h3>Vận hạn</h3><p>Đại hạn hiện tại: '+(function(){ var c = E.daiHanTuoi(ls, th.info.tuoi); return c===null?'chưa đến tuổi khởi đại hạn':'cung '+esc(ls.cungs[c].ten)+' ('+E.CHI[c]+') từ '+ls.cungs[c].dai+' đến '+(ls.cungs[c].dai+9)+' tuổi'; })()+'.</p>';
+    if (th.info.cung!==null) r += '<p>Tiểu hạn năm '+th.nam+': cung '+esc(ls.cungs[th.info.cung].ten)+' ('+E.CHI[th.info.cung]+'): '+esc(C.cung[ls.cungs[th.info.cung].ten])+'</p>';
+    $('read').innerHTML = r;
+
+    var url = (window.TUVI_AI_URL||'').trim();
+    $('askNote').textContent = url ? 'Hỏi AI để giải thích thêm. Câu hỏi và tóm tắt lá số (không gồm tên) được gửi đến dịch vụ AI.' : 'Phần hỏi đáp AI đang chờ kết nối. Bạn vẫn xem được lá số và luận giải ở trên.';
+    $('askBtn').disabled = !url;
+    $('result').style.display = 'block';
+    last = ls;
+  }
+
+  function summaryForAI(ls){
+    var mc = ls.cungs[ls.menh], out = ['Nam/Nữ: '+(ls.input.gender==='nam'?'Nam':'Nữ'), 'Năm sinh: '+ls.canChiNam, ls.amDuongNamNu, 'Cục: '+ls.cucTen, 'Bản mệnh: '+ls.banMenh,
+      'Mệnh: '+E.CHI[ls.menh], 'Thân: '+E.CHI[ls.than]];
+    ls.cungs.forEach(function(c){ out.push(c.ten+' ('+E.CHI[c.chi]+'): '+(c.chinh.join(', ')||'vô chính diệu')+' | '+c.cat.concat(c.hung).join(', ')); });
+    return out.join('\n');
+  }
+
+  $('f').addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = $('err'); err.style.display = 'none';
+    var d = $('date').value;
+    if (!d){ err.textContent = 'Bạn nhập ngày sinh giúp mình nhé.'; err.style.display='block'; return; }
+    var p = d.split('-'), y = +p[0], m = +p[1], dd = +p[2];
+    if (y < 1900 || y > 2100){ err.textContent = 'Năm sinh nên nằm trong khoảng 1900 đến 2100.'; err.style.display='block'; return; }
+    var ls = E.lapLaSo({ gender: $('gender').value, day: dd, month: m, year: y, hourChi: +$('hour').value, hour: 0 });
+    ls.input.hourChi = +$('hour').value;
+    render(ls, $('name').value.trim());
+    $('result').scrollIntoView({ behavior: 'smooth' });
+  });
+  $('printBtn').addEventListener('click', function(){ window.print(); });
+  $('askBtn').addEventListener('click', function(){
+    var url = (window.TUVI_AI_URL||'').trim(), q = $('q').value.trim();
+    if (!url || !q || !last) return;
+    $('aiOut').textContent = 'Đang hỏi...';
+    fetch(url, { method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({ question:q, chart:summaryForAI(last) }) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ $('aiOut').textContent = j.answer || j.error || 'Chưa có câu trả lời.'; })
+      .catch(function(){ $('aiOut').textContent = 'Chưa kết nối được dịch vụ AI. Bạn thử lại sau nhé.'; });
+  });
+})();
+</script>
+</body>
+</html>
