@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T11:10:00+07:00",
+  "title": "Design System: Tử Vi",
+  "extensions": {
+    "colorMeta": {
+      "vang-hoe": { "role": "neutral", "displayName": "Vàng Hoè (Sophora Yellow)", "canonical": "#E8B23A", "tonalRamp": ["oklch(15% 0.060 83)", "oklch(26% 0.084 83)", "oklch(38% 0.108 83)", "oklch(49% 0.132 83)", "oklch(61% 0.132 83)", "oklch(72% 0.108 83)", "oklch(84% 0.084 83)", "oklch(95% 0.060 83)"] },
+      "giay-diep": { "role": "neutral", "displayName": "Giấy Điệp (Điệp Paper)", "canonical": "#FBF0CE", "tonalRamp": ["oklch(15% 0.019 92)", "oklch(26% 0.027 92)", "oklch(38% 0.034 92)", "oklch(49% 0.042 92)", "oklch(61% 0.042 92)", "oklch(72% 0.034 92)", "oklch(84% 0.027 92)", "oklch(95% 0.019 92)"] },
+      "giay-nhuom": { "role": "neutral", "displayName": "Giấy Nhuộm (Dyed Paper)", "canonical": "#F5DF9A", "tonalRamp": ["oklch(15% 0.038 92)", "oklch(26% 0.053 92)", "oklch(38% 0.068 92)", "oklch(49% 0.083 92)", "oklch(61% 0.083 92)", "oklch(72% 0.068 92)", "oklch(84% 0.053 92)", "oklch(95% 0.038 92)"] },
+      "muc-tau": { "role": "neutral", "displayName": "Mực Tàu (Chinese Ink)", "canonical": "#1C1611", "tonalRamp": ["oklch(15% 0.006 62)", "oklch(26% 0.008 62)", "oklch(38% 0.010 62)", "oklch(49% 0.013 62)", "oklch(61% 0.013 62)", "oklch(72% 0.010 62)", "oklch(84% 0.008 62)", "oklch(95% 0.006 62)"] },
+      "muc-nhat": { "role": "neutral", "displayName": "Mực Nhạt (Thinned Ink)", "canonical": "#4F3F2B", "tonalRamp": ["oklch(15% 0.016 72)", "oklch(26% 0.023 72)", "oklch(38% 0.029 72)", "oklch(49% 0.035 72)", "oklch(61% 0.035 72)", "oklch(72% 0.029 72)", "oklch(84% 0.023 72)", "oklch(95% 0.016 72)"] },
+      "cham": { "role": "secondary", "displayName": "Chàm (Indigo Dye)", "canonical": "#22386B", "tonalRamp": ["oklch(15% 0.039 265)", "oklch(26% 0.054 265)", "oklch(38% 0.070 265)", "oklch(49% 0.085 265)", "oklch(61% 0.085 265)", "oklch(72% 0.070 265)", "oklch(84% 0.054 265)", "oklch(95% 0.039 265)"] },
+      "do-son": { "role": "primary", "displayName": "Đỏ Son (Cinnabar Seal Red)", "canonical": "#B3301B", "tonalRamp": ["oklch(15% 0.072 32)", "oklch(26% 0.100 32)", "oklch(38% 0.128 32)", "oklch(49% 0.157 32)", "oklch(61% 0.157 32)", "oklch(72% 0.128 32)", "oklch(84% 0.100 32)", "oklch(95% 0.072 32)"] },
+      "son-nhat": { "role": "primary", "displayName": "Son Nhạt (Washed Cinnabar)", "canonical": "#F3CDB8", "tonalRamp": ["oklch(15% 0.022 51)", "oklch(26% 0.030 51)", "oklch(38% 0.039 51)", "oklch(49% 0.047 51)", "oklch(61% 0.047 51)", "oklch(72% 0.039 51)", "oklch(84% 0.030 51)", "oklch(95% 0.022 51)"] },
+      "on-son": { "role": "primary", "displayName": "On Son", "canonical": "#FFF4DE" },
+      "la": { "role": "tertiary", "displayName": "Lá (Leaf Green)", "canonical": "#2C6630", "tonalRamp": ["oklch(15% 0.044 145)", "oklch(26% 0.061 145)", "oklch(38% 0.078 145)", "oklch(49% 0.095 145)", "oklch(61% 0.095 145)", "oklch(72% 0.078 145)", "oklch(84% 0.061 145)", "oklch(95% 0.044 145)"] },
+      "do-vang": { "role": "tertiary", "displayName": "Đỏ Vang (Wine Red Band)", "canonical": "#8E1C17", "tonalRamp": ["oklch(15% 0.063 28)", "oklch(26% 0.088 28)", "oklch(38% 0.113 28)", "oklch(49% 0.138 28)", "oklch(61% 0.138 28)", "oklch(72% 0.113 28)", "oklch(84% 0.088 28)", "oklch(95% 0.063 28)"] },
+      "on-band": { "role": "tertiary", "displayName": "On Band", "canonical": "#FBE9B7" },
+      "field": { "role": "neutral", "displayName": "Field", "canonical": "#FFFBEE", "tonalRamp": ["oklch(15% 0.007 93)", "oklch(26% 0.010 93)", "oklch(38% 0.013 93)", "oklch(49% 0.016 93)", "oklch(61% 0.016 93)", "oklch(72% 0.013 93)", "oklch(84% 0.010 93)", "oklch(95% 0.007 93)"] },
+      "hover": { "role": "neutral", "displayName": "Palace Hover", "canonical": "#FFF7DD" },
+      "dark-ground": { "role": "neutral", "displayName": "Dark: Lamp-lit Ground", "canonical": "#16100B" },
+      "dark-paper": { "role": "neutral", "displayName": "Dark: Brown Paper", "canonical": "#241A12" },
+      "dark-paper-2": { "role": "neutral", "displayName": "Dark: Dyed Brown Paper", "canonical": "#332414" },
+      "dark-ink": { "role": "neutral", "displayName": "Dark: Ink", "canonical": "#F3E3C3" },
+      "dark-ink-2": { "role": "neutral", "displayName": "Dark: Thinned Ink", "canonical": "#CDB68F" },
+      "dark-cham": { "role": "secondary", "displayName": "Dark: Chàm", "canonical": "#AFB9DA" },
+      "dark-son": { "role": "primary", "displayName": "Dark: Đỏ Son", "canonical": "#EA6146" },
+      "dark-la": { "role": "tertiary", "displayName": "Dark: Lá", "canonical": "#8FC98A" },
+      "dark-band": { "role": "tertiary", "displayName": "Dark: Đỏ Vang", "canonical": "#6B1712" },
+      "dark-rule": { "role": "neutral", "displayName": "Dark: Rule", "canonical": "#E9D7AE" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "\"Tử Vi\" in the top band only." },
+      "headline": { "displayName": "Headline", "purpose": "Paper panel titles; centre name 17/22/26px, detail title 22px." },
+      "title": { "displayName": "Title", "purpose": "Subsections in the palace detail (16px) and reading (18px)." },
+      "body": { "displayName": "Body", "purpose": "UI text and inputs." },
+      "reading": { "displayName": "Reading", "purpose": "Reading and AI answer text, max 72ch." },
+      "label": { "displayName": "Label", "purpose": "Field labels in Mực Nhạt." },
+      "star-main": { "displayName": "Main Star", "purpose": "Chính tinh in palace cells; 11.5 / 13 / 15.5px at phone / 560 / 900." },
+      "chart-cell": { "displayName": "Chart Cell", "purpose": "Minor stars and footers in palace cells; 10.5 / 11 / 13px." }
+    },
+    "shadows": [
+      { "name": "paper-rest", "value": "0 8px 22px -14px rgba(60,30,5,.55)", "purpose": "Every paper panel." },
+      { "name": "button-lift", "value": "0 4px 10px -4px rgba(60,20,5,.45)", "purpose": "Primary button at rest." },
+      { "name": "button-press", "value": "0 1px 3px -1px rgba(60,20,5,.45)", "purpose": "Primary button while pressed." },
+      { "name": "sheet", "value": "0 -14px 40px -10px rgba(40,20,5,.55)", "purpose": "Phone bottom sheet for palace detail." },
+      { "name": "mascot", "value": "drop-shadow(0 4px 6px rgba(0,0,0,.25))", "purpose": "Kel on the band (filter)." },
+      { "name": "selection-inset", "value": "inset 0 0 0 2.5px var(--son)", "purpose": "Selected palace frame." },
+      { "name": "dark-paper-rest", "value": "0 12px 30px -12px rgba(0,0,0,.7)", "purpose": "Paper panels in dark mode." }
+    ],
+    "motion": [
+      { "name": "ease-ink", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Ink line drawing and bottom sheet rise." },
+      { "name": "ink-draw", "value": "0.55s", "purpose": "Tam hợp lines stroke in (stroke-dashoffset to 0)." },
+      { "name": "xung-fade", "value": "0.35s ease-out, 0.2s delay", "purpose": "Dashed xung chiếu line fades in after the draw starts." },
+      { "name": "sheet-up", "value": "0.32s", "purpose": "Bottom sheet rises 24px and fades in." },
+      { "name": "centre-fade", "value": "opacity 0.25s", "purpose": "Centre block content dims to 16% while a palace is selected." },
+      { "name": "toast-fade", "value": "opacity 0.2s", "purpose": "Toast in/out." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "All of the above show their end state with no animation." }
+    ],
+    "breakpoints": [
+      { "name": "tiny", "value": "380px (max)" },
+      { "name": "cell-md", "value": "560px" },
+      { "name": "gutter", "value": "700px" },
+      { "name": "form-row", "value": "760px" },
+      { "name": "cell-lg", "value": "900px" },
+      { "name": "side-detail", "value": "1040px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action per panel: Lập lá số, Hỏi Kel.",
+      "html": "<button class=\"ds-btn\">Lập lá số</button>",
+      "css": ".ds-btn{min-height:46px;border:2px solid var(--rule,#1C1611);border-radius:4px;background:var(--son,#B3301B);color:var(--on-son,#FFF4DE);font:700 16px/1.2 'Be Vietnam Pro',system-ui,sans-serif;padding:10px 20px;cursor:pointer;box-shadow:0 4px 10px -4px rgba(60,20,5,.45)}.ds-btn:hover{filter:brightness(1.06)}.ds-btn:active{transform:translateY(1px);filter:brightness(.92);box-shadow:0 1px 3px -1px rgba(60,20,5,.45)}.ds-btn:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:2px}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action beside the primary, e.g. In lá số.",
+      "html": "<button class=\"ds-btn-quiet\">In lá số</button>",
+      "css": ".ds-btn-quiet{min-height:46px;border:2px solid var(--rule,#1C1611);border-radius:4px;background:transparent;color:var(--ink,#1C1611);font:700 16px/1.2 'Be Vietnam Pro',system-ui,sans-serif;padding:10px 20px;cursor:pointer}.ds-btn-quiet:hover{background:var(--hover,#FFF7DD)}.ds-btn-quiet:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:2px}"
+    },
+    {
+      "name": "Top Band with Tool Tabs",
+      "kind": "nav",
+      "refersTo": "top-band",
+      "description": "Đỏ vang band with the title and the three tool tabs.",
+      "html": "<div class=\"ds-band\"><div class=\"ds-band-t\">Tử Vi</div><div class=\"ds-tools\"><button class=\"ds-tool\" aria-current=\"page\">Lá số</button><button class=\"ds-tool\">Xem hợp tuổi</button><button class=\"ds-tool\">Làm thiệp cưới</button></div></div>",
+      "css": ".ds-band{background:var(--band,#8E1C17);color:var(--on-band,#FBE9B7);border-bottom:3px solid var(--rule,#1C1611);padding:12px}.ds-band-t{font:800 30px/1.15 Alegreya,Georgia,serif;letter-spacing:-.01em}.ds-tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.ds-tool{border:1.5px solid var(--on-band,#FBE9B7);background:transparent;color:var(--on-band,#FBE9B7);border-radius:2px;padding:6px 12px;font:600 14px 'Be Vietnam Pro',system-ui,sans-serif;min-height:36px;cursor:pointer}.ds-tool:hover{background:rgba(251,233,183,.14)}.ds-tool[aria-current=page]{background:var(--on-band,#FBE9B7);color:var(--band,#8E1C17)}.ds-tool:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:2px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Ruled field on light field paper with a 13px label.",
+      "html": "<label class=\"ds-lbl\">Tên (không bắt buộc)<input class=\"ds-input\" placeholder=\"Ví dụ: Minh Anh\"></label>",
+      "css": ".ds-lbl{display:block;font:600 13px 'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink-2,#4F3F2B)}.ds-input{display:block;width:100%;box-sizing:border-box;margin-top:5px;min-height:46px;padding:10px 12px;border:1.5px solid var(--rule,#1C1611);border-radius:4px;background:var(--field,#FFFBEE);color:var(--ink,#1C1611);font:400 16px 'Be Vietnam Pro',system-ui,sans-serif}.ds-input::placeholder{color:var(--ink-2,#4F3F2B);opacity:.85}.ds-input:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:2px}"
+    },
+    {
+      "name": "Segmented Choice",
+      "kind": "input",
+      "refersTo": "segment-selected",
+      "description": "Two-way choice (Nam / Nữ) in one ruled frame; selected half in Chàm.",
+      "html": "<div class=\"ds-seg\"><button class=\"ds-seg-o\" aria-pressed=\"true\">Nam</button><button class=\"ds-seg-o\" aria-pressed=\"false\">Nữ</button></div>",
+      "css": ".ds-seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--rule,#1C1611);border-radius:4px;overflow:hidden;min-height:46px;background:var(--field,#FFFBEE)}.ds-seg-o{border:0;background:transparent;font:600 15px 'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink,#1C1611);cursor:pointer}.ds-seg-o+.ds-seg-o{border-left:1.5px solid var(--rule,#1C1611)}.ds-seg-o[aria-pressed=true]{background:var(--cham,#22386B);color:var(--paper,#FBF0CE)}.ds-seg-o:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:-3px}"
+    },
+    {
+      "name": "Paper Panel",
+      "kind": "card",
+      "refersTo": "paper-panel",
+      "description": "Every content section: giấy điệp paper, 2px ink frame, warm shadow.",
+      "html": "<section class=\"ds-paper\"><h2>Lập lá số</h2><p>Nhập ngày và giờ sinh. Mọi thứ được tính ngay trong trình duyệt của bạn.</p></section>",
+      "css": ".ds-paper{background:var(--paper,#FBF0CE);border:2px solid var(--rule,#1C1611);border-radius:2px;padding:16px;box-shadow:0 8px 22px -14px rgba(60,30,5,.55);color:var(--ink,#1C1611);font:400 16px/1.55 'Be Vietnam Pro',system-ui,sans-serif}.ds-paper h2{margin:0;font:800 24px/1.15 Alegreya,Georgia,serif;color:var(--cham,#22386B)}.ds-paper p{margin:4px 0 0;font-size:14px;color:var(--ink-2,#4F3F2B)}"
+    },
+    {
+      "name": "Star Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Outlined star chips in the palace detail: Lá for good, Đỏ Son for bad.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip ds-cat\">Văn Xương</span><span class=\"ds-chip ds-cat\">Thiên Khôi</span><span class=\"ds-chip ds-hung\">Kình Dương</span></div>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:5px}.ds-chip{border:1.3px solid currentColor;border-radius:3px;padding:2px 7px;font:600 13px 'Be Vietnam Pro',system-ui,sans-serif}.ds-cat{color:var(--la,#2C6630)}.ds-hung{color:var(--son,#B3301B)}"
+    },
+    {
+      "name": "Palace Cell",
+      "kind": "custom",
+      "refersTo": "palace-cell",
+      "description": "One palace of the 4x4 chart: chi seal, đại hạn age, name, main stars, good and bad minor stars, footer.",
+      "html": "<button class=\"ds-cell\"><span class=\"ds-head\"><span class=\"ds-seal\">Tỵ</span><span class=\"ds-dai\">34</span></span><span class=\"ds-name\">Quan Lộc</span><b class=\"ds-chinh\">Tử Vi</b><b class=\"ds-chinh\">Thất Sát</b><span class=\"ds-cat\">Tả Phù</span><span class=\"ds-hung\">Địa Kiếp</span><span class=\"ds-foot\"><span>Lâm Quan</span><span class=\"ds-th\">Hạn 2026</span></span></button>",
+      "css": ".ds-cell{width:150px;min-height:170px;border:2px solid var(--rule,#1C1611);border-radius:0;background:var(--paper,#FBF0CE);color:var(--ink,#1C1611);text-align:left;padding:7px 7px 5px;display:flex;flex-direction:column;gap:3px;cursor:pointer;font:400 11px/1.3 'Be Vietnam Pro',system-ui,sans-serif}.ds-cell:hover{background:var(--hover,#FFF7DD)}.ds-cell:focus-visible{outline:3px solid var(--son,#B3301B);outline-offset:-3px}.ds-cell[aria-pressed=true]{background:var(--son-tint,#F3CDB8);box-shadow:inset 0 0 0 2.5px var(--son,#B3301B)}.ds-head{display:flex;align-items:center;gap:4px}.ds-seal{display:inline-grid;place-items:center;min-width:24px;height:21px;padding:0 3px;background:var(--son,#B3301B);color:var(--on-son,#FFF4DE);font-weight:700;font-size:11px;border-radius:2px}.ds-dai{margin-left:auto;font-weight:700;font-size:12.5px;font-variant-numeric:tabular-nums}.ds-name{font-weight:700;font-size:12px;color:var(--cham,#22386B)}.ds-chinh{display:block;font-size:13px;font-weight:800;white-space:nowrap}.ds-cat{color:var(--la,#2C6630);white-space:nowrap}.ds-hung{color:var(--son,#B3301B);white-space:nowrap}.ds-foot{margin-top:auto;padding-top:3px;border-top:1px dotted rgba(28,22,17,.22);display:flex;justify-content:space-between;gap:4px;color:var(--ink-2,#4F3F2B)}.ds-th{color:var(--son,#B3301B);font-weight:700}"
+    },
+    {
+      "name": "Tam Phương Ink Lines",
+      "kind": "custom",
+      "refersTo": "tam-phuong-links",
+      "description": "Signature: red ink strokes drawn across the centre block from the chosen palace to its tam hợp pair, dashed to its xung chiếu.",
+      "html": "<svg class=\"ds-links\" viewBox=\"0 0 200 140\" width=\"200\" height=\"140\"><rect x=\"1\" y=\"1\" width=\"198\" height=\"138\" class=\"ds-centre\"/><line class=\"ds-draw\" style=\"--len:150\" x1=\"20\" y1=\"20\" x2=\"180\" y2=\"70\"/><line class=\"ds-draw\" style=\"--len:150\" x1=\"180\" y1=\"70\" x2=\"60\" y2=\"120\"/><line class=\"ds-draw\" style=\"--len:110\" x1=\"60\" y1=\"120\" x2=\"20\" y2=\"20\"/><line class=\"ds-xung\" x1=\"20\" y1=\"20\" x2=\"180\" y2=\"120\"/><circle cx=\"20\" cy=\"20\" r=\"5\"/><circle cx=\"180\" cy=\"70\" r=\"3.5\"/><circle cx=\"60\" cy=\"120\" r=\"3.5\"/><circle cx=\"180\" cy=\"120\" r=\"3.5\"/></svg>",
+      "css": ".ds-centre{fill:var(--paper-2,#F5DF9A);stroke:var(--rule,#1C1611);stroke-width:1}.ds-links line{stroke:var(--son,#B3301B);stroke-width:2.5;stroke-linecap:round}.ds-links circle{fill:var(--son,#B3301B)}.ds-draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:ds-ink .55s cubic-bezier(.16,1,.3,1) forwards}.ds-xung{stroke-dasharray:6 5;opacity:0;animation:ds-fade .35s .2s ease-out forwards}@keyframes ds-ink{to{stroke-dashoffset:0}}@keyframes ds-fade{to{opacity:1}}@media (prefers-reduced-motion:reduce){.ds-draw{animation:none;stroke-dashoffset:0}.ds-xung{opacity:1;animation:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Đông Hồ Chart",
+    "overview": "The page is a woodblock print laid over the canonical Tử Vi chart. A vàng hoè yellow ground carries sheets of giấy điệp paper (a tiled fibre-and-glint texture, `assets/giay-diep.webp`, over the paper colour), and every structure on them is cut in mực tàu black: a heavy outer frame, thin inner rules, solid-ruled controls. Colour is applied the way a Đông Hồ printer applies it, as a few flat inks with fixed jobs: đỏ son for seals, bad stars and the one action, chàm indigo for names and headings, leaf green for good stars. A deep đỏ vang band crowns the page and carries Kel, the Kelvin mascot dressed as the Tử Vi master.\n\nThe chart itself is never re-imagined. It stays the standard 4x4 ring of twelve palaces around a two-by-two centre block, with fixed slots in each palace (chi seal, can, đại hạn age, palace name, main stars, minor stars, Tràng Sinh, tiểu hạn). Density is high and deliberate: a phone shows all twelve palaces at once, so cells use small but legible type that steps up at 560px and 900px, and no line is ever absolutely positioned. The signature moment is ink being drawn: tapping a palace strokes đỏ son lines across the centre block to its tam hợp pair and a dashed line to its xung chiếu palace.\n\nThe system rejects the dark starry \"mystic\" fortune site and the navy SaaS card stack. Dark mode is not a night sky; it is the same print on lamp-lit brown paper.",
+    "keyCharacteristics": [
+      "Flat inks on textured paper, framed by black woodcut rules.",
+      "The standard Tử Vi chart layout, unchanged, as the page's centre of gravity.",
+      "Two typefaces: Alegreya for anything titled, Be Vietnam Pro for UI and star names.",
+      "Near-square corners everywhere (2px to 4px); softness comes from paper and warm shadow, not radius.",
+      "Motion is limited to ink drawing, a sheet rising, and fades; all of it stops under reduced motion."
+    ],
+    "rules": [
+      { "name": "The One Ink, One Job Rule", "body": "Lá is only good stars, son is only seals, bad stars, the action, focus and selection, chàm is only names, headings, links and the chosen segment. A new element borrows an ink only if it means the same thing.", "section": "colors" },
+      { "name": "The Two Reds Rule", "body": "Đỏ vang is the band and nothing else; đỏ son never fills the band. They sit next to each other only at the top of the page.", "section": "colors" },
+      { "name": "The No-Overlap Rule", "body": "Every line in a palace sits in normal flow, each star name is `nowrap` on its own line (two columns of minor stars from 560px), and size steps only at the 380 / 560 / 900px breakpoints. Nothing in a cell is absolutely positioned. The test case is the most crowded palace (21 stars) at the narrowest phone.", "section": "typography" },
+      { "name": "The Serif Titles Rule", "body": "Alegreya appears only on titled things (band, panel and section headings, centre name). Star names, palace names and controls are always Be Vietnam Pro.", "section": "typography" },
+      { "name": "The Paper, Not Glass Rule", "body": "Shadows are warm brown, soft and below the sheet. Nothing is translucent or blurred.", "section": "elevation" },
+      { "name": "The Woodcut Rule", "body": "Structure is drawn with mực tàu lines, never implied by spacing or tint alone: the outer frame is 2px, inner rules 1px.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the standard 4x4 palace ring with the centre block in rows 2-3 and columns 2-3, and the fixed slot order inside each palace.",
+      "Do draw every panel and the chart with a 2px Mực Tàu frame and separate palaces with 1px ink gaps.",
+      "Do put the giấy điệp texture tile (384px) under every paper surface, and blend it soft-light in dark mode.",
+      "Do colour good stars Lá, bad stars Đỏ Son and main stars bold ink, and keep the legend that explains it next to the chart.",
+      "Do step chart type only at the 380 / 560 / 900px breakpoints and check the 21-star palace at the narrowest phone before shipping a change.",
+      "Do give every animation a reduced-motion state that shows the end result."
+    ],
+    "donts": [
+      "Don't use a dark starry, zodiac-glow \"mystic\" look or a navy SaaS card stack; dark mode stays warm brown paper.",
+      "Don't absolutely position text inside a palace or let star names wrap mid-name.",
+      "Don't use Đỏ Vang anywhere but the band, or use Lá or Chàm for anything outside their one job.",
+      "Don't round panels or controls past 4px; the bottom sheet's 10px top corners are the only exception.",
+      "Don't add glass, blur or glow shadows; depth is warm paper shadow and ink frames.",
+      "Don't set star names or controls in Alegreya."
+    ]
+  }
+}
