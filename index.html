@@ -220,6 +220,40 @@ ul.clean{margin:6px 0;padding-left:20px}
 #aiOut{white-space:pre-wrap;margin-top:12px;font-size:15.5px;max-width:72ch}
 #aiOut.busy{color:var(--ink-2)}
 
+/* ---------- xem hợp tuổi ---------- */
+#fh{display:block}
+.pair{display:grid;gap:14px;margin-bottom:14px}
+@media (min-width:760px){.pair{grid-template-columns:1fr 1fr}}
+fieldset.person{border:1.5px solid var(--rule);border-radius:2px;padding:10px 14px 14px;margin:0;display:grid;gap:10px;min-width:0}
+fieldset.person legend{font-family:Alegreya,Georgia,serif;font-weight:800;font-size:18px;color:var(--cham);padding:0 6px}
+#fh .btn{width:100%}
+@media (min-width:760px){#fh .btn{width:auto;min-width:220px}}
+.ht-score{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center}
+.ht-score img{width:84px;height:84px}
+.ht-num{font-family:Alegreya,Georgia,serif;font-weight:700;color:var(--ink);font-size:16px;line-height:1}
+.ht-num b{font-size:30px;color:var(--son);font-weight:800}
+.ht-score h2{font-size:24px;margin-top:2px}
+.ht-score p{margin:4px 0 0;grid-column:1/-1;font-size:15.5px;max-width:72ch}
+.meter{display:flex;gap:4px;margin:12px 0 4px}
+.meter i{flex:1;height:14px;border:1.5px solid var(--rule);border-radius:2px;background:transparent}
+.meter i.on{background:var(--son)}
+.ht-who{margin:10px 0 4px;font-size:14.5px;color:var(--ink-2)}
+.ht-who b{color:var(--ink)}
+.ht-rows{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:0;border-top:1.5px solid var(--rule)}
+.ht-rows li{padding:12px 0;border-bottom:1px solid var(--hair)}
+.ht-row-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.ht-row-head h3{font-size:18px}
+.pts{flex:none;font-weight:700;font-size:13px;padding:3px 8px;border:1.5px solid currentColor;border-radius:2px;white-space:nowrap}
+.pts.p2{color:var(--la)} .pts.p1{color:var(--cham)} .pts.p0{color:var(--son)}
+.ht-vals{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 6px}
+.ht-vals span{display:block;font-weight:600;font-size:15px;min-width:0}
+.ht-vals span.u{display:inline;white-space:nowrap;font-weight:500;color:var(--ink-2)}
+#hoptuoi,#htResult{max-width:820px}
+.ht-vals small{display:block;font-weight:500;font-size:12.5px;color:var(--ink-2)}
+.ht-rows p{margin:0;font-size:15px;max-width:72ch}
+.ht-rows p b{font-weight:700}
+.ht-go{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
 /* ---------- other tools ---------- */
 .soon{display:none}
 .soon.open{display:block}
@@ -279,8 +313,35 @@ footer p{margin:4px 0;max-width:80ch}
 
   <section class="paper soon" id="hoptuoi" aria-labelledby="ht-title">
     <h2 id="ht-title">Xem hợp tuổi</h2>
-    <p class="lede">Nhập ngày sinh của hai người để xem ngũ hành, thiên can và địa chi có hợp nhau không. Phần này đang được hoàn thiện và sẽ có trong bản cập nhật tới.</p>
+    <p class="lede">Nhập ngày sinh của hai người. Kel so 5 tiêu chí theo cách xem tuổi truyền thống: ngũ hành bản mệnh, thiên can, địa chi, cung phi bát trạch và thiên mệnh. Năm sinh tính theo âm lịch.</p>
+    <form id="fh" novalidate>
+      <div class="pair">
+      <fieldset class="person">
+        <legend>Người thứ nhất</legend>
+        <div><label for="dA">Ngày sinh (dương lịch)</label><input id="dA" type="date" min="1900-01-01" max="2100-12-31" required></div>
+        <div><span class="lbl" id="gA-lbl">Giới tính</span>
+          <div class="seg" role="radiogroup" aria-labelledby="gA-lbl">
+            <input type="radio" name="gA" id="gA-nam" value="nam" checked><label for="gA-nam">Nam</label>
+            <input type="radio" name="gA" id="gA-nu" value="nu"><label for="gA-nu">Nữ</label>
+          </div></div>
+        <div><label for="nA">Tên (không bắt buộc)</label><input id="nA" autocomplete="off"></div>
+      </fieldset>
+      <fieldset class="person">
+        <legend>Người thứ hai</legend>
+        <div><label for="dB">Ngày sinh (dương lịch)</label><input id="dB" type="date" min="1900-01-01" max="2100-12-31" required></div>
+        <div><span class="lbl" id="gB-lbl">Giới tính</span>
+          <div class="seg" role="radiogroup" aria-labelledby="gB-lbl">
+            <input type="radio" name="gB" id="gB-nam" value="nam"><label for="gB-nam">Nam</label>
+            <input type="radio" name="gB" id="gB-nu" value="nu" checked><label for="gB-nu">Nữ</label>
+          </div></div>
+        <div><label for="nB">Tên (không bắt buộc)</label><input id="nB" autocomplete="off"></div>
+      </fieldset>
+      </div>
+      <button class="btn" type="submit">Xem hợp tuổi</button>
+    </form>
+    <div class="err" id="herr" role="alert"></div>
   </section>
+  <section class="paper soon" id="htResult" aria-labelledby="htr-title"></section>
 
   <div id="result">
     <div class="result-grid">
@@ -321,6 +382,7 @@ footer p{margin:4px 0;max-width:80ch}
 <script src="config.js"></script>
 <script src="engine.js"></script>
 <script src="content.js"></script>
+<script src="compat.js"></script>
 <script>
 (function(){
   var E = window.TuViEngine, C = window.TUVI_CONTENT;
@@ -523,10 +585,55 @@ footer p{margin:4px 0;max-width:80ch}
       b.setAttribute('aria-current', 'page');
       var ht = t === 'hoptuoi';
       $('hoptuoi').classList.toggle('open', ht);
+      $('htResult').classList.toggle('open', ht && !!lastHt);
       $('formCard').style.display = ht ? 'none' : '';
       $('result').style.display = (!ht && last) ? 'block' : 'none';
       if (ht && selChi !== null) selectCell(null);
     });
+  });
+  /* ---------- xem hợp tuổi ---------- */
+  var H = window.TuViHopTuoi, lastHt = null;
+  function readPerson(k){
+    var v = $('d'+k).value; if (!v) return null;
+    var p = v.split('-');
+    return { year: +p[0], month: +p[1], day: +p[2], gender: document.querySelector('input[name="g'+k+'"]:checked').value, name: $('n'+k).value.trim(), iso: v };
+  }
+  function keep(v){ return esc(v).replace(/\(([^)]+)\)/, '<span class="u">($1)</span>'); }
+  function goTool(t){ var b = document.querySelector('.tool[data-tool="'+t+'"]'); if (b) b.click(); }
+  function renderHt(r, pa, pb){
+    function who(x, p, so){ return '<b>'+esc(p.name || ('Người thứ '+so))+'</b> ('+esc(x.canChi)+' '+x.namAm+', '+(p.gender==='nam'?'nam':'nữ')+')'; }
+    var meter = ''; for (var i=0;i<10;i++) meter += '<i class="'+(i<r.tong?'on':'')+'"></i>';
+    var h = '<div class="ht-score"><img src="stickers/kel-love.webp" alt="" width="84" height="84"><div><div class="ht-num"><b>'+r.tong+'</b> / 10 điểm</div>'+
+      '<h2 id="htr-title">'+esc(r.ket.ten)+'</h2></div><p>'+esc(r.ket.y)+'</p></div>';
+    h += '<div class="meter" role="img" aria-label="'+r.tong+' trên 10 điểm">'+meter+'</div>';
+    h += '<p class="ht-who">'+who(r.a, pa, 'nhất')+' · '+who(r.b, pb, 'hai')+'</p>';
+    h += '<ol class="ht-rows">'+r.rows.map(function(row){
+      var d = row.kq.diem;
+      return '<li><div class="ht-row-head"><h3>'+esc(row.ten)+'</h3><span class="pts p'+d+'">'+d+' điểm</span></div>'+
+        '<div class="ht-vals"><span><small>'+esc(pa.name || 'Người thứ nhất')+'</small>'+keep(row.a)+'</span><span><small>'+esc(pb.name || 'Người thứ hai')+'</small>'+keep(row.b)+'</span></div>'+
+        '<p><b>'+esc(row.kq.ten)+'.</b> '+esc(row.kq.y)+'</p></li>';
+    }).join('')+'</ol>';
+    h += '<div class="ht-go"><button class="btn quiet" type="button" data-show="A">Xem lá số của '+esc(pa.name || 'người thứ nhất')+'</button><button class="btn quiet" type="button" data-show="B">Xem lá số của '+esc(pb.name || 'người thứ hai')+'</button></div>';
+    h += '<p class="note">Xem tuổi chỉ để tham khảo. Sự thấu hiểu và cách hai người đối xử với nhau mới quyết định hạnh phúc.</p>';
+    var box = $('htResult'); box.innerHTML = h; box.classList.add('open');
+    each(box.querySelectorAll('[data-show]'), function(b){ b.addEventListener('click', function(){
+      var p = b.getAttribute('data-show') === 'A' ? pa : pb;
+      goTool('laso');
+      $('date').value = p.iso; $('name').value = p.name; $(p.gender === 'nam' ? 'g-nam' : 'g-nu').checked = true;
+      $('formCard').scrollIntoView({ behavior: 'auto' }); $('hour').focus();
+      toast('Chọn giờ sinh rồi bấm Lập lá số nhé.');
+    }); });
+  }
+  $('fh').addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = $('herr'); err.style.display = 'none';
+    var pa = readPerson('A'), pb = readPerson('B');
+    var bad = !pa ? 'Bạn nhập ngày sinh của người thứ nhất giúp mình nhé.' : !pb ? 'Bạn nhập ngày sinh của người thứ hai giúp mình nhé.' :
+      (pa.year < 1900 || pa.year > 2100 || pb.year < 1900 || pb.year > 2100) ? 'Năm sinh cần trong khoảng 1900 đến 2100.' : '';
+    if (bad){ err.textContent = bad; err.style.display = 'block'; $(!pa ? 'dA' : 'dB').focus(); return; }
+    lastHt = H.xem(pa, pb);
+    renderHt(lastHt, pa, pb);
+    $('htResult').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' });
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && selChi !== null) closeDetail(); });
   var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(function(){ if (selChi !== null) drawLinks(selChi); }, 120); });
